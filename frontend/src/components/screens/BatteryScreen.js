@@ -1,15 +1,17 @@
 import { Text, Box, Container, Button, Heading, SimpleGrid } from "@chakra-ui/react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { IoIosAdd, IoIosAddCircle } from "react-icons/io";
 import { TbBarcode } from 'react-icons/tb';
 import DatabaseContext from "../../context/DatabaseContext";
 import BatteryCard from "../features/BatteryCard";
+import CreateBatteryModal from "../modals/CreateBatteryModal";
 
 function BatteryScreen() {
     const {
         batteries,
         addBattery
     } = useContext(DatabaseContext);
+    const [createBatteryOpen, setCreateBatteryOpen] = useState(false);
 
     return (
         <Container
@@ -66,7 +68,7 @@ function BatteryScreen() {
                         bg: 'rgba(0,0,0,0.1)',
                         shadow: "3px 3px rgba(0,0,0,0.1)"
                     }}
-                    onClick={() => addBattery('new')}
+                    onClick={() => setCreateBatteryOpen(true)}
                 >
                     Add Battery
                 </Button>
@@ -90,7 +92,7 @@ function BatteryScreen() {
                         fontWeight="bold"
                         color="rgba(0,0,0,0.3)"
                         cursor="pointer"
-                        onClick={() => addBattery('new')}
+                        onClick={() => setCreateBatteryOpen(true)}
                         _hover={{
                             bg: 'rgba(0,0,0,0.05)'
                         }}
@@ -102,7 +104,10 @@ function BatteryScreen() {
                     </Box>
                 </SimpleGrid>
             </Box>
-
+            <CreateBatteryModal
+                isOpen={createBatteryOpen}
+                onClose={() => setCreateBatteryOpen(false)}
+            />
         </Container>
     )
 }
