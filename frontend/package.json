@@ -1,26 +1,50 @@
 {
-  "name": "battery-tracker-web",
+  "name": "battery-tracker-tool",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "cross-env CI=false react-scripts build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.26.1",
+    "react-error-overlay": "^6.0.9",
+    "react-scripts": "4.0.3",
+    "sass": "^1.56.1"
+  },
+  "dependencies": {
+    "@blueprintjs/core": "^3.53.0",
+    "@blueprintjs/icons": "^3.32.0",
+    "@chakra-ui/icons": "1.0.15",
+    "@chakra-ui/react": "1.6.8",
+    "@chakra-ui/system": "1.10.1",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "axios": "^0.21.1",
+    "focus-visible": "^5.2.0",
+    "framer-motion": "^4.1.17",
+    "moment": "^2.29.1",
+    "normalize.css": "^8.0.1",
+    "pouchdb": "^7.2.2",
+    "query-string": "^7.1.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^5.3.0",
+    "react-use": "^17.3.1",
+    "uuid": "^8.3.2"
+  },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
