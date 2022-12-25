@@ -9,9 +9,10 @@ import {
     Button
   } from '@chakra-ui/react'
 
-const WelcomeScreenModal = ({ isOpen, onClose }) => {
+const FeedbackModal = ({ isOpen, onClose }) => {
     return (
         <Modal
+            size="xl"
             isOpen={isOpen}
             onClose={onClose}
         >
@@ -36,4 +37,4 @@ const WelcomeScreenModal = ({ isOpen, onClose }) => {
     )
 };
 
-export default WelcomeScreenModal;
+export default FeedbackModal;

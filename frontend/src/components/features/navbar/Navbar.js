@@ -3,6 +3,8 @@ import { Icon } from '@blueprintjs/core';
 import { TiBatteryCharge, TiBell, TiEdit, TiLightbulb, TiThumbsUp, TiUserOutline } from 'react-icons/ti';
 import logo from '../../../assets/img/logo-text-black.png';
 import { useHistory, useRouteMatch } from "react-router-dom";
+import { useState } from "react";
+import FeedbackModal from "../../modals/FeedbackModal";
 
 const TabButton = ({ path, children }) => {
     const match = useRouteMatch(path);
@@ -28,11 +30,11 @@ const TabButton = ({ path, children }) => {
 }
 const Navbar = () => {
     const history = useHistory();
+    const [feedbackOpen, setFeedbackOpen] = useState(false);
 
     return (
         <>
         <Box   
-            borderBottom="2px solid rgba(0,0,0,0.05)"
             bg="black"
             color="white"
             display="flex"
@@ -77,8 +79,9 @@ const Navbar = () => {
                         _active={{
                             bg: 'rgba(255,255,255,0.2)',
                         }}
+                        onClick={() => setFeedbackOpen(true)}
                     >
-                        <TiEdit />&nbsp;Send Feedback
+                        <TiEdit />&nbsp;Feedback
                     </Button>
                     <Button
                         bg="rgba(255,255,255,0.0)"
@@ -114,9 +117,10 @@ const Navbar = () => {
                 mb="-2px"
             >
                 <TabButton path="/batteries"><TiBatteryCharge />&nbsp;Batteries</TabButton>
-                <TabButton path="/alerts"><TiBell />&nbsp;Alerts</TabButton>
+                {/* <TabButton path="/alerts"><TiBell />&nbsp;Alerts</TabButton> */}
             </Container>
         </Box>
+        <FeedbackModal isOpen={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
         </>
     );
 }

@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import Footer from '../features/Footer';
 import Navbar from '../features/navbar/Navbar';
 import AlertScreen from './AlertScreen';
 import BatteryScreen from './BatteryScreen';
@@ -11,6 +12,7 @@ function RootScreen() {
             flexDir="column"
             justifyContent="stretch"
             alignItems="stretch"
+            flex="1"
         >
             <Navbar />
             <Switch>
@@ -24,6 +26,8 @@ function RootScreen() {
                     <Redirect to="/batteries" />
                 </Route>
             </Switch>
+            <Box flex="1"></Box>
+            {/* <Footer /> */}
         </Box>
     )
 }
