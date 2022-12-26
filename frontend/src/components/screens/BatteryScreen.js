@@ -83,7 +83,7 @@ function BatteryScreen() {
                     <Box
                         bg="rgba(0,0,0,0.035)"
                         borderRadius="2px"
-                        h="250px"
+                        h={["210px","210px","250px"]}
                         display="flex"
                         flexDir="row"
                         justifyContent="center"

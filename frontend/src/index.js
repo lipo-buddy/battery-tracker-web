@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/css/index.css';
+import './assets/css/index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import ChakraContextProvider from './context/ChakraContext';
 import RootScreen from './components/screens/RootScreen';

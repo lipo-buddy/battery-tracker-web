@@ -6,6 +6,7 @@ const DatabaseContext = React.createContext(null);
 export default DatabaseContext;
 
 export function DatabaseContextProvider({ children }) {
+    const [batteryNum, setBatteryNum] = useLocalStorage('battery-counter', 0);
     const [batteries, setBatteries] = useLocalStorage('batteries', [{
         name: 'Test1',
         id: uuidv4()
@@ -16,9 +17,11 @@ export function DatabaseContextProvider({ children }) {
 
     const addBattery = (name) => {
         setBatteries([...batteries, {
-            name: uuidv4(),
-            id: uuidv4()
+            name: `Battery #${batteryNum || 0}`,
+            id: uuidv4(),
+            status: 'discharged'
         }]);
+        setBatteryNum((batteryNum || 0) + 1);
     };
 
     const deleteBattery = (id) => {
