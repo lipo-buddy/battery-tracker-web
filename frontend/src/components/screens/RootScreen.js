@@ -14,7 +14,7 @@ function RootScreen() {
             alignItems="stretch"
             flex="1"
         >
-            <Navbar />
+            {/* <Navbar /> */}
             <Switch>
                 <Route path="/batteries">
                     <BatteryScreen />

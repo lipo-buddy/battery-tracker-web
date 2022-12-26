@@ -43,7 +43,7 @@ const Navbar = () => {
             alignItems="stretch"
         >
             <Container
-                maxW="100vw"
+                maxW="1180px"
                 display="flex"
                 flexDir="row"
                 justifyContent="stretch"
@@ -59,6 +59,7 @@ const Navbar = () => {
                     alignItems="center"
                     pointerEvents="none"
                     userSelect="none"
+                    ml="-10px"
                 >
                     <Image src={logo} height="35px" />
                 </Box>
@@ -83,7 +84,7 @@ const Navbar = () => {
                     >
                         <TiEdit />&nbsp;Feedback
                     </Button>
-                    <Button
+                    {/* <Button
                         bg="rgba(255,255,255,0.0)"
                         color="white"
                         height="50px"
@@ -97,7 +98,7 @@ const Navbar = () => {
                         }}
                     >
                         <TiUserOutline />&nbsp;Log In to Sync
-                    </Button>
+                    </Button> */}
                 </Box>
             </Container>
         </Box>

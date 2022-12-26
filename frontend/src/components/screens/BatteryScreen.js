@@ -4,7 +4,7 @@ import { IoIosAdd, IoIosAddCircle } from "react-icons/io";
 import { TbBarcode } from 'react-icons/tb';
 import DatabaseContext from "../../context/DatabaseContext";
 import BatteryCard from "../features/BatteryCard";
-import CreateBatteryModal from "../modals/CreateBatteryModal";
+import CreateEditBatteryModal from "../modals/CreateEditBatteryModal";
 
 function BatteryScreen() {
     const {
@@ -30,9 +30,8 @@ function BatteryScreen() {
                 alignItems="center"
                 mb="15px"
                 pb="15px"
-                borderBottom="1px solid rgba(0,0,0,0.05)"
             >
-                <Heading size="md">0 Batteries</Heading>
+                <Heading size="lg">{batteries.length} {batteries.length === 1 ? 'Battery': 'Batteries'}</Heading>
                 <Box flex="1"></Box>
                 {/* <Button
                     bg="rgba(0,0,0,0.05)"
@@ -81,8 +80,9 @@ function BatteryScreen() {
                         );
                     })}
                     <Box
-                        bg="rgba(0,0,0,0.035)"
-                        borderRadius="2px"
+                        border="3px solid rgba(0,0,0,0.035)"
+                        bg="rgba(0,0,0,0.01)"
+                        borderRadius="3px"
                         h={["210px","210px","250px"]}
                         display="flex"
                         flexDir="row"
@@ -94,7 +94,7 @@ function BatteryScreen() {
                         cursor="pointer"
                         onClick={() => setCreateBatteryOpen(true)}
                         _hover={{
-                            bg: 'rgba(0,0,0,0.05)'
+                            bg: 'rgba(0,0,0,0.03)'
                         }}
                     >
                         <Text mr="6px" fontSize="28px" opacity="0.8">
@@ -104,9 +104,13 @@ function BatteryScreen() {
                     </Box>
                 </SimpleGrid>
             </Box>
-            <CreateBatteryModal
+            <CreateEditBatteryModal
                 isOpen={createBatteryOpen}
-                onClose={() => setCreateBatteryOpen(false)}
+                onCancel={() => setCreateBatteryOpen(false)}
+                onConfirm={(updatedBattery) => {
+                    addBattery(updatedBattery);
+                    setCreateBatteryOpen(false);
+                }}
             />
         </Container>
     )
