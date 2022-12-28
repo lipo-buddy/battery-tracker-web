@@ -1,0 +1,10 @@
+package-lock.json
+coverage
+.nyc_output/
+.vscode
+dist
+functional_api_tests
+node_modules
+test
+README.md
+config/local.yml

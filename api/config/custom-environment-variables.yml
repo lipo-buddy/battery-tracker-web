@@ -1,0 +1,17 @@
+server:
+  port: "SERVER_PORT"
+  showSwaggerDocs: "SERVER_SHOW_SWAGGER_DOCS"
+logging:
+  level: "LOGGING_LEVEL"
+  color: "LOGGING_COLOR"
+  showStackTraces: "LOGGING_SHOW_STACK_TRACES"
+postgres:
+  enabled: 'POSTGRES_ENABLED'
+  logQueries: 'POSTGRES_LOG_QUERIES'
+  logQueryResults: 'POSTGRES_LOG_QUERY_RESULTS'
+  host: 'POSTGRES_HOST'
+  port: 'POSTGRES_PORT'
+  database: 'POSTGRES_DB'
+  username: 'POSTGRES_USERNAME'
+  password: 'POSTGRES_PASSWORD'
+  clientPoolSize: 'POSTGRES_CLIENT_POOL_SIZE'

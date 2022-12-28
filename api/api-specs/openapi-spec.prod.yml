@@ -1,0 +1,42 @@
+openapi: '3.0.2'
+info:
+  title: LiPo Buddy Pro API
+  description:  |
+    API for LiPo Buddy Pro accounts.
+    Handles account management, subscriptions, syncing, notifications.
+  version: '1.0.0'
+servers:
+  - url: http://localhost:3601/api/v1
+security:
+components:
+  schemas:
+    ApiError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+        message:
+          type: string
+        timestamp:
+          type: string
+        stack:
+          type: string
+  /api/v1/healthcheck:
+    post:
+      summary: Healthcheck
+      description:
+      tags:
+        - 'System API'
+      responses:
+        '200':
+          description: Successfully returned the service status.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                  uptime:
+                    type: number
+                  timestamp:
+                    type: number

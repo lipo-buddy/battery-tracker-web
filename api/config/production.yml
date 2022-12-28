@@ -1,0 +1,6 @@
+server:
+  showSwaggerDocs: false
+logging:
+  level: 'info'
+  color: false
+  showStackTraces: false
